@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sidebar Cognito</title>
+    <link rel="stylesheet" href="sidebar.css" />
+  </head>
+  <body>
+    <div id="loading-overlay" class="loading-overlay">
+      <div class="loading-spinner"></div>
+      <p>Chargement des données...</p>
+    </div>
+    <div id="content" class="content">
+      <div class="status-indicator" id="status-indicator"></div>
+      <div class="sidebar-container">
+        <div class="profile-photo-container">
+          <img
+            id="profile-photo"
+            class="profile-photo"
+            src=""
+            alt="Photo de profil"
+          />
+        </div>
+        <div class="profile-header">
+          <div class="profile-info">
+            <div class="input-group">
+              <label for="name">Nom complet</label>
+              <input type="text" id="name" class="profile-input" />
+            </div>
+            <div class="input-group">
+              <label for="job">Poste actuel</label>
+              <input type="text" id="job" class="profile-input" />
+            </div>
+          </div>
+        </div>
+
+        <div class="input-group">
+          <label for="description">Description</label>
+          <textarea
+            id="description"
+            class="profile-textarea"
+            rows="3"
+          ></textarea>
+        </div>
+
+        <div class="profile-details">
+          <div class="input-group">
+            <label for="location">
+              <span class="detail-icon">📍</span>
+              Localisation
+            </label>
+            <input type="text" id="location" class="profile-input" />
+          </div>
+          <div class="input-group">
+            <label for="education">
+              <span class="detail-icon">🎓</span>
+              Formation
+            </label>
+            <input type="text" id="education" class="profile-input" />
+          </div>
+          <div class="input-group">
+            <label for="linkedinUrl">
+              <span class="detail-icon">🔗</span>
+              URL LinkedIn
+            </label>
+            <input type="url" id="linkedinUrl" class="profile-input" />
+          </div>
+        </div>
+
+        <div class="input-group textarea-with-select">
+          <label for="notes">Ajouter une note</label>
+          <div class="textarea-container">
+            <textarea
+              id="notes"
+              class="profile-textarea"
+              rows="4"
+              maxlength="500"
+            ></textarea>
+            <select id="contactMethod" class="contact-method-select">
+              <option value="Message LinkedIn">Message LinkedIn</option>
+              <option value="Mail">Mail</option>
+              <option value="Appel">Appel</option>
+              <option value="Prise de note">Prise de note</option>
+              <option value="Qualification de poste">
+                Qualification de poste
+              </option>
+              <option value="Appel Manqué">Appel Manqué</option>
+              <option value="Qualif">Qualif</option>
+              <option value="Biz dev">Biz dev</option>
+            </select>
+          </div>
+          <div class="notes-footer">
+            <span id="notesCharCount">0/500</span>
+            <button id="saveNotesButton" class="action-button">
+              Sauvegarder
+            </button>
+          </div>
+        </div>
+
+        <div class="notes-section">
+          <div id="notesContainer" class="notes-container"></div>
+        </div>
+
+        <div class="tags-section">
+          <div id="tagsContainer" class="tags-container"></div>
+
+          <div class="flex gap-2">
+            <input
+              type="text"
+              id="tagInput"
+              class="profile-input"
+              placeholder="Ajouter un tag"
+            />
+            <button id="addTagButton" class="action-button">Ajouter</button>
+          </div>
+          <div
+            id="suggestedTagsContainer"
+            class="suggested-tags-container"
+          ></div>
+        </div>
+
+        <div class="contact-info">
+          <div class="contact-title">Coordonnées</div>
+          <div class="input-group">
+            <label for="phone">
+              <span class="detail-icon">📱</span>
+              Téléphone
+            </label>
+            <input type="tel" id="phone" class="profile-input" />
+          </div>
+          <div class="input-group">
+            <label for="email">
+              <span class="detail-icon">✉️</span>
+              Email
+            </label>
+            <input type="email" id="email" class="profile-input" />
+          </div>
+        </div>
+
+        <div class="action-buttons">
+          <button class="action-button" id="importButton">Importer</button>
+          <button class="action-button secondary" id="closeButton">
+            Fermer
+          </button>
+        </div>
+      </div>
+
+      <div class="not-connected">
+        <h1>Vous n'êtes pas connecté</h1>
+        <button id="button-connect">Se connecter</button>
+        <button id="button-retry">Réessayer</button>
+        <button id="button-close">Fermer</button>
+      </div>
+    </div>
+
+    <div id="notification" class="notification"></div>
+    <script src="sidebar.js"></script>
+  </body>
+</html>

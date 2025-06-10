@@ -1,0 +1,52 @@
+{
+  "manifest_version": 3,
+  "name": "Cognito Extension (Développement)",
+  "version": "3.0",
+  "description": "Extension basique avec popup",
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "background": {
+    "service_worker": "background/background.js"
+  },
+  "side_panel": {
+    "default_path": "sidebar/sidebar.html"
+  },
+  "permissions": ["storage", "scripting", "sidePanel"],
+  "host_permissions": [
+    "http://localhost:/*",
+    "https://www.linkedin.com/*",
+    "http://localhost:5000/*",
+    "http://localhost:3000/*",
+    "https://cognito-back.onrender.com/*",
+    "https://cognito-front.onrender.com/*",
+    "https://cognito-back-production.up.railway.app/*", 
+    "https://cognito-front.vercel.app/*"
+  ],
+  "content_scripts": [
+    {
+      "matches": ["https://www.linkedin.com/*"],
+      "js": ["content_scripts/linkedin-content-script.js"]
+    },
+    {
+      "matches": ["http://localhost:3000/*", "https://cognito-front.onrender.com/*", "https://cognito-front.vercel.app/*"],
+      "js": ["content_scripts/application-content-script.js"]
+    }
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["images/icon48.png"],
+      "matches": ["https://www.linkedin.com/*"]
+    }
+  ]
+}
